@@ -67,7 +67,7 @@ export class Inicio extends React.Component {
 
     render() {
         return (
-            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop:'-45px' }}>
+            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop:'-64px' }}>
                 <Row>
                     <Col sm={6}>
                         <img src={home} style={{ width: 70, float: 'right' }}></img>
@@ -106,7 +106,7 @@ export class Inicio extends React.Component {
                         <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.correo} disabled={true}></input>
                     </Col>
                 </Row>
-                <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic' }}>
+                <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic', fontSize:12 }}>
                     <label style={{ color: 'white' }}>SERVICIO VOZ Y DATOS</label>
                 </div>
                 <Row>
@@ -169,7 +169,7 @@ export class Inicio extends React.Component {
                         <input style={{ marginTop: 25, width: '70%', float:'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
                     </Col>
                 </Row>
-                <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic' }}>
+                <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic', fontSize:12 }}>
                     <label style={{ color: 'white' }}>SERVICIO DEDICADO</label>
                 </div>
                 <Row>
@@ -195,10 +195,10 @@ export class Inicio extends React.Component {
                 </Row>
                 <Row>
                     <Col sm={1}>
-                        <img src={ubicacion} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
+                        <img src={ubicacion} style={{ width: 72, float: 'center', marginTop: 10 }}></img>
                     </Col>
                     <Col sm={9}>
-                        <textarea style={{ marginTop: 35, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true}/>
+                        <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true}/>
                     </Col>
                     <Col sm={2}>
                         <img src={grupojumex} style={{ width: 180, float: 'center', marginTop: 10 }}></img>
@@ -217,7 +217,7 @@ export class Inicio extends React.Component {
             { "CD": "AGUASCALIENTES MN", "ZONA": "BAJIO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "CIRCUITO AGUASCALIENTES SUR NÚMERO 100-A, PARQUE INDUSTRIAL VALLE DE AGUASCALIENTES, DE LA CIUDAD DE AGUASCALIENTES, C.P. 20358", "RESPONSABLE": "MARIANA GARCIA", "CONTACTO": "44 9930 3061", "CORREO": "gags@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "FIBRA", "LINEA1": "449 9710257", "LINEA2": "449 6885113", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "50MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10002", "OBSERVACION": "APAGAR WIFI" },
             { "CD": "AGUASCALIENTES MY", "ZONA": "BAJIO", "TIPO": "COMISIONISTA", "RAZON": "COMERCIALIZADORA ESTRADA", "DIRECCION": "CARRETERA PANAMERICANA SUR KM. 116 , COL. LOS ARELLANO, AGUASCALIENTES, C.P. 20290", "RESPONSABLE": "ESTHELA", "CONTACTO": "44 9150 1559", "CORREO": "-", "SERVICIO": "INFINITUM", "TIPO": "COBRE", "LINEA1": "449 9711127", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "", "CARE": "-", "CONTACTOCARE": "-", "COD": "10003", "OBSERVACION": "APAGAR WIFI, FOTO ATRÁS MODEM, REVISAR SPEEDTEST" },
             { "CD": "ATOTONILCO", "ZONA": "BAJIO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "CALLE STEVE MATHIS 16 COL ALAMEDA, ATOTONILCO EL ALTO, JALISCO, C.P. 47750", "RESPONSABLE": "JORGE GALLEGOS PEREZ", "CONTACTO": "33 1285 6357", "CORREO": "arato@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "COBRE", "LINEA1": "391 9173861", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "", "CARE": "-", "CONTACTOCARE": "-", "COD": "10004", "OBSERVACION": "FALTA INFORMACION" },
-            { "CD": "CANCUN", "ZONA": "SURESTE", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "SÚPER MANZANA 104 MANZANA 26 LOTE 4 FRACCIÓN 001 BENITO JUAREZ QUINTANA ROO C.P.77500", "RESPONSABLE": "VERONICA DE DIOS", "CONTACTO": "99 8120 8857", "CORREO": "gcan@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "FIBRA", "LINEA1": "998 8868118", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "998 8868119", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE MERIDA", "CONTACTOCASE": "800 2011100", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "15MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10005", "OBSERVACION": "ACTUALIZAR FOTO SIN MODEM AXTEL" }
+            { "CD": "CANCUN", "ZONA": "SURESTE", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "SÚPER MANZANA 104 MANZANA 26 LOTE 4 FRACCIÓN 001 BENITO JUAREZ QUINTANA ROO C.P.77500", "RESPONSABLE": "VERONICA DE DIOS", "CONTACTO": "99 8120 8857", "CORREO": "gcan@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "FIBRA", "LINEA1": "998 8868118", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "998 8868119", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE MERIDA", "CONTACTOCASE": "800 2011100", "REFERENCIA": "-", "VELOCIDAD": "15MB", "ENLACE": "15MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10005", "OBSERVACION": "ACTUALIZAR FOTO SIN MODEM AXTEL" }
 
         ];
 

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import home from './images/home.png';
+import home from './images/inicio.png';
 import perfil from './images/perfil.png';
 import whats from './images/whats.PNG';
 import outlook from './images/outlook.PNG';

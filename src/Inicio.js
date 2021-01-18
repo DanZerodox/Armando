@@ -52,19 +52,22 @@ export class Inicio extends React.Component {
             cascontact: '',
             velocidad: '',
             tipo: '',
-            observacion: ''
+            observacion: '',
+            direccion:''
         }
 
         this.handleChangeBuscar = this.handleChangeBuscar.bind(this);
 
     }
     handleChangeBuscar(event) {
-        this.setState({ buscar: event.target.value })
+        this.setState({ buscar: event.target.value },()=>{
+            this.LlenarCampos();
+        })
     }
 
     render() {
         return (
-            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white' }}>
+            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop:'-22px' }}>
                 <Row>
                     <Col sm={6}>
                         <img src={home} style={{ width: 70, float: 'right' }}></img>
@@ -72,7 +75,8 @@ export class Inicio extends React.Component {
                     <Col sm={6}>
                         
                         {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                        <select style={{marginTop:25, width:'25%'}} onChange={this.handleChangeBuscar}>
+                        <select style={{marginTop:25, width:'30%'}} onChange={this.handleChangeBuscar}>
+                            <option value="0">---SELECCIONAR---</option>
                             <option value="ACAPULCO">ACAPULCO</option>
                             <option value="AGUASCALIENTES MN">AGUASCALIENTES MN</option>
                             <option value="AGUASCALIENTES MY">AGUASCALIENTES MY</option>
@@ -81,7 +85,6 @@ export class Inicio extends React.Component {
                         </select>                        
                         </Col>
                 </Row>
-                <br></br>
                 <hr></hr>
                 <Row>
                     <Col sm={1}>
@@ -106,7 +109,6 @@ export class Inicio extends React.Component {
                 <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic' }}>
                     <label style={{ color: 'white' }}>SERVICIO VOZ Y DATOS</label>
                 </div>
-                <br></br>
                 <Row>
                     <Col sm={1}>
                         <img src={telmex} style={{ width: 100, float: 'center', marginTop: 20 }}></img>
@@ -161,23 +163,21 @@ export class Inicio extends React.Component {
                         <input style={{ marginTop: 25, width: '100%' }} value={this.state.velocidad} placeholder='#N/D' disabled={true}></input>
                     </Col>
                     <Col sm={1}>
-                        <img src={cobre} style={{ width: 110, float: 'center', marginTop: 16 }}></img>
+                        <img src={cobre} style={{ width: 150, float: 'center', marginTop: 16 }}></img>
                     </Col>
                     <Col sm={2}>
-                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '83%', float:'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
                     </Col>
                 </Row>
-                <br></br>
                 <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic' }}>
                     <label style={{ color: 'white' }}>SERVICIO DEDICADO</label>
                 </div>
-                <br></br>
                 <Row>
                     <Col sm={1}>
                         <img src={libro} style={{ width: 100, float: 'center', marginTop: 10 }}></img>
                     </Col>
                     <Col sm={3}>
-                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.observacion} disabled={true}></input>
                     </Col>
                     <Col sm={1}>
                         <img src={telefono} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
@@ -198,7 +198,7 @@ export class Inicio extends React.Component {
                         <img src={ubicacion} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                     </Col>
                     <Col sm={9}>
-                        <input style={{ marginTop: 35, width: '100%' }} value={this.state.observacion} placeholder='#N/D' disabled={true}></input>
+                        <textarea style={{ marginTop: 35, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true}/>
                     </Col>
                     <Col sm={2}>
                         <img src={grupojumex} style={{ width: 180, float: 'center', marginTop: 10 }}></img>
@@ -244,7 +244,8 @@ export class Inicio extends React.Component {
                 cascontact: '',
                 velocidad: '',
                 tipo: '',
-                observacion: ''
+                observacion: '',
+                direccion:''
             })
         }
         else {
@@ -264,7 +265,8 @@ export class Inicio extends React.Component {
                 cascontact: result.CONTACTOCASE,
                 velocidad: result.VELOCIDAD,
                 tipo: result.TIPO,
-                observacion: result.OBSERVACION
+                observacion: result.OBSERVACION,
+                direccion: result.DIRECCION
             })
         }
         console.log("resultado", result);

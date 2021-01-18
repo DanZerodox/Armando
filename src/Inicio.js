@@ -75,7 +75,7 @@ export class Inicio extends React.Component {
                     <Col sm={6}>
                         
                         {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                        <select style={{marginTop:25, width:'30%'}} onChange={this.handleChangeBuscar}>
+                        <select style={{marginTop:25, width:'35%'}} onChange={this.handleChangeBuscar}>
                             <option value="0">---SELECCIONAR---</option>
                             <option value="ACAPULCO">ACAPULCO</option>
                             <option value="AGUASCALIENTES MN">AGUASCALIENTES MN</option>

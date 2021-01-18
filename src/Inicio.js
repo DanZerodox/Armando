@@ -67,7 +67,7 @@ export class Inicio extends React.Component {
             <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white' }}>
                 <Row>
                     <Col sm={6}>
-                        <img src={home} style={{ width: 100, float: 'right' }}></img>
+                        <img src={home} style={{ width: 70, float: 'right' }}></img>
                     </Col>
                     <Col sm={6}><input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input></Col>
                 </Row>

@@ -67,7 +67,7 @@ export class Inicio extends React.Component {
 
     render() {
         return (
-            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop:'-22px' }}>
+            <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop:'-45px' }}>
                 <Row>
                     <Col sm={6}>
                         <img src={home} style={{ width: 70, float: 'right' }}></img>

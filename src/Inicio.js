@@ -166,7 +166,7 @@ export class Inicio extends React.Component {
                         <img src={cobre} style={{ width: 150, float: 'center', marginTop: 16 }}></img>
                     </Col>
                     <Col sm={2}>
-                        <input style={{ marginTop: 25, width: '83%', float:'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '70%', float:'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
                     </Col>
                 </Row>
                 <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic' }}>
@@ -213,11 +213,12 @@ export class Inicio extends React.Component {
 
     LlenarCampos() {
         var datos = [
-            { "CD": "ACAPULCO", "ZONA": "CENTRO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "BOULEVARD DE LAS NACIONES, LOTE 33-A INTERIOR B FRACCIONAMIENTO GRANJAS DEL MARQUÉS, MUNICIPIO DE ACAPULCO DE JUAREZ, GUERRERO, C.P. 39890", "RESPONSABLE": "MONICO RAMIREZ", "CONTACTO": "55 4332 9937", "CORREO": "gaca@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "COBRE/COBRE", "LINEA1": "744 4502151", "LINEA2": "744 4502152", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE CENTRO", "CONTACTOCASE": "55 54475000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "15MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10001", "OBSERVACION": "APAGAR WIFI Y REVISAR OTRO MODEM" },
+            { "CD": "ACAPULCO", "ZONA": "CENTRO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "BOULEVARD DE LAS NACIONES, LOTE 33-A INTERIOR B FRACCIONAMIENTO GRANJAS DEL MARQUÉS, MUNICIPIO DE ACAPULCO DE JUAREZ, GUERRERO, C.P. 39890", "RESPONSABLE": "MONICO RAMIREZ", "CONTACTO": "55 4332 9937", "CORREO": "gaca@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "COBRE/COBRE", "LINEA1": "744 4502151", "LINEA2": "744 4502152", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE CENTRO", "CONTACTOCASE": "55 54475000", "REFERENCIA": "C01-2003-0227", "VELOCIDAD": "-", "ENLACE": "15MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10001", "OBSERVACION": "APAGAR WIFI Y REVISAR OTRO MODEM" },
             { "CD": "AGUASCALIENTES MN", "ZONA": "BAJIO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "CIRCUITO AGUASCALIENTES SUR NÚMERO 100-A, PARQUE INDUSTRIAL VALLE DE AGUASCALIENTES, DE LA CIUDAD DE AGUASCALIENTES, C.P. 20358", "RESPONSABLE": "MARIANA GARCIA", "CONTACTO": "44 9930 3061", "CORREO": "gags@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "FIBRA", "LINEA1": "449 9710257", "LINEA2": "449 6885113", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "50MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10002", "OBSERVACION": "APAGAR WIFI" },
             { "CD": "AGUASCALIENTES MY", "ZONA": "BAJIO", "TIPO": "COMISIONISTA", "RAZON": "COMERCIALIZADORA ESTRADA", "DIRECCION": "CARRETERA PANAMERICANA SUR KM. 116 , COL. LOS ARELLANO, AGUASCALIENTES, C.P. 20290", "RESPONSABLE": "ESTHELA", "CONTACTO": "44 9150 1559", "CORREO": "-", "SERVICIO": "INFINITUM", "TIPO": "COBRE", "LINEA1": "449 9711127", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "", "CARE": "-", "CONTACTOCARE": "-", "COD": "10003", "OBSERVACION": "APAGAR WIFI, FOTO ATRÁS MODEM, REVISAR SPEEDTEST" },
             { "CD": "ATOTONILCO", "ZONA": "BAJIO", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "CALLE STEVE MATHIS 16 COL ALAMEDA, ATOTONILCO EL ALTO, JALISCO, C.P. 47750", "RESPONSABLE": "JORGE GALLEGOS PEREZ", "CONTACTO": "33 1285 6357", "CORREO": "arato@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "COBRE", "LINEA1": "391 9173861", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "-", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE QUERETARO", "CONTACTOCASE": "800 4040000", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "", "CARE": "-", "CONTACTOCARE": "-", "COD": "10004", "OBSERVACION": "FALTA INFORMACION" },
             { "CD": "CANCUN", "ZONA": "SURESTE", "TIPO": "PROPIO", "RAZON": "COMERCIALIZADORA ELORO", "DIRECCION": "SÚPER MANZANA 104 MANZANA 26 LOTE 4 FRACCIÓN 001 BENITO JUAREZ QUINTANA ROO C.P.77500", "RESPONSABLE": "VERONICA DE DIOS", "CONTACTO": "99 8120 8857", "CORREO": "gcan@jumex.com.mx", "SERVICIO": "INFINITUM", "TIPO": "FIBRA", "LINEA1": "998 8868118", "LINEA2": "-", "LINEA3": "-", "LINEA4": "-", "LINEA5": "-", "LINEA1V": "998 8868119", "LINEA2V": "-", "LINEA3V": "-", "LINEA4V": "-", "LINEA5V": "-", "CORRESPONDIENTE": "CASE MERIDA", "CONTACTOCASE": "800 2011100", "REFERENCIA": "-", "VELOCIDAD": "-", "ENLACE": "15MB", "CARE": "-", "CONTACTOCARE": "-", "COD": "10005", "OBSERVACION": "ACTUALIZAR FOTO SIN MODEM AXTEL" }
+
         ];
 
         var result = datos.find(x => x.CD == this.state.buscar.toUpperCase());
@@ -265,7 +266,7 @@ export class Inicio extends React.Component {
                 cascontact: result.CONTACTOCASE,
                 velocidad: result.VELOCIDAD,
                 tipo: result.TIPO,
-                observacion: result.OBSERVACION,
+                observacion: result.REFERENCIA,
                 direccion: result.DIRECCION
             })
         }

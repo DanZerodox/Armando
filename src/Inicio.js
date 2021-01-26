@@ -10,7 +10,7 @@ export class Inicio extends React.Component {
   
     render() {
         return (
-            <Media queries={{small:{maxWidth: 400}, large: { maxWidth: 1600 } }}>
+            <Media queries={{small:{maxWidth: 600}, large: { maxWidth: 1600 } }}>
                 {
                     matches =>
                         matches.small ? (

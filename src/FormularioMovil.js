@@ -21,7 +21,7 @@ import grupojumex from './images/grupojumex.PNG';
 import Swal from 'sweetalert2'
 import { useForm } from 'react-hook-form';
 import "./styles.css";
-
+import { StyleSheet, Text, View, TouchableOpacity, Linking, Platform } from 'react-native';
 
 export class FormularioMovil extends React.Component {
     constructor(props) {
@@ -97,7 +97,7 @@ export class FormularioMovil extends React.Component {
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
                 <div style={{textAlign:'center'}}><img src={casetel} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.cas}/>
-                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.cascontact}/>
+                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.cascontact} onClick={this.llamar()}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.velocidad}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.tipo}/>
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Dedicado</h6></div>
@@ -109,6 +109,19 @@ export class FormularioMovil extends React.Component {
             </form>
            </div>
         );
+    }
+
+    llamar(){
+        let phoneNumber = '';
+ 
+        if (Platform.OS === 'android') {
+          phoneNumber = 'tel:${1234567890}';
+        }
+        else {
+          phoneNumber = 'telprompt:${1234567890}';
+        }
+     
+        Linking.openURL(phoneNumber);
     }
 
     componentDidMount() {

@@ -104,7 +104,7 @@ export class FormularioMovil extends React.Component {
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Observaciones" name="First name" disabled={true} value={this.state.observacion}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de contacto" name="Last name" disabled={true}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Velocidad" name="Email" disabled={true}/>
-                <textarea style={{width:'100%', height=100}} type="text"  value={this.state.direccion} name="Email" disabled={true}/>
+                <textarea style={{width:'100%', height:100}} type="text"  value={this.state.direccion} name="Email" disabled={true}/>
                 <div style={{textAlign:'center'}}><img src={grupojumex} style={{ width: '80%' }}></img></div>
             </form>
            </div>

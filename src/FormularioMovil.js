@@ -22,6 +22,8 @@ import Swal from 'sweetalert2'
 import { useForm } from 'react-hook-form';
 import "./styles.css";
 import call from 'react-native-phone-call';
+import { Text, StyleSheet, View, Linking, Platform, TouchableOpacity } from 'react-native';
+
 
 export class FormularioMovil extends React.Component {
     constructor(props) {

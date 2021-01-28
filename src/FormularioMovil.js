@@ -104,6 +104,7 @@ export class FormularioMovil extends React.Component {
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de contacto" name="Last name" disabled={true}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Velocidad" name="Email" disabled={true}/>
                 <textarea style={{width:'100%', height:110}} type="text"  value={this.state.direccion} name="Email" disabled={true}/>
+                <a href="tel://+1234567890">Call Me</a>
                 <div style={{textAlign:'center'}}><img src={grupojumex} style={{ width: '80%' }}></img></div>
             </form>
            </div>
@@ -111,12 +112,7 @@ export class FormularioMovil extends React.Component {
     }
 
     llamar(){
-        const args = {
-            number: '9093900003', // String value with the number to call
-            prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
-          }
-           
-        call(args).catch(console.error);
+      
     }
 
     componentDidMount() {

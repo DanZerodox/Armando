@@ -53,7 +53,9 @@ export class FormularioWeb extends React.Component {
             tipo: '',
             observacion: '',
             direccion: '',
-            cedis: []
+            cedis: [],
+            velocidadde:'',
+            contactocare:''
 
         }
 
@@ -182,13 +184,13 @@ export class FormularioWeb extends React.Component {
                         <img src={telefono} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                     </Col>
                     <Col sm={3}>
-                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true} value={this.state.contactocare}></input>
                     </Col>
                     <Col sm={1}>
                         <img src={lector} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                     </Col>
                     <Col sm={3}>
-                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true} value={this.state.velocidadde}></input>
                     </Col>
 
                 </Row>
@@ -432,7 +434,9 @@ export class FormularioWeb extends React.Component {
                 velocidad: result.VELOCIDADEN,
                 tipo: result.TIPO,
                 observacion: result.REFERENCIA,
-                direccion: result.DIRECCION
+                direccion: result.DIRECCION,
+                velocidadde: result.VELOCIDADDE,
+                contactocare: result.CONTACTOCARE
             })
         }
         console.log("resultado", result);

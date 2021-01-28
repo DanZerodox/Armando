@@ -55,7 +55,9 @@ export class FormularioMovil extends React.Component {
             tipo: '',
             observacion: '',
             direccion: '',
-            cedis: []
+            cedis: [],
+            velocidadde:'',
+            contactocare:''
         }
 
         this.handleChangeBuscar = this.handleChangeBuscar.bind(this);
@@ -81,28 +83,28 @@ export class FormularioMovil extends React.Component {
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Colaborador" name="First name" disabled={true} value={this.state.responsable}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de Contacto" name="Last name" disabled={true} value={this.state.contacto}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Correo" name="Email" disabled={true} value={this.state.correo}/>
-                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
+                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Datos</h6></div>
                 <div style={{textAlign:'center'}}><img src={telmex} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.telmexi1}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.telmexi2}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.telmexi3}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.telmexi4}/>
-                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
+                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz</h6></div>
                 <div style={{textAlign:'center'}}><img src={telmex2} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.telemxv1}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.telemxv2}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.telemxv3}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.telemxv4}/>
-                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
+                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Reporte Infinitum</h6></div>
                 <div style={{textAlign:'center'}}><img src={casetel} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.cas}/>
                 <a href={"tel://+"+this.state.cascontact}><input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.cascontact} /></a>           
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.velocidad}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.tipo}/>
-                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Dedicado</h6></div>
+                <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Reporte Dedicado</h6></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Observaciones" name="First name" disabled={true} value={this.state.observacion}/>
-                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de contacto" name="Last name" disabled={true}/>
-                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Velocidad" name="Email" disabled={true}/>
+                <a href={"tel://+"+this.state.contactocare}><input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de contacto" name="Last name" disabled={true} value={this.state.contactocare}/></a>        
+                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Velocidad" name="Email" disabled={true} value={this.state.velocidadde}/>
                 <textarea style={{width:'100%', height:110}} type="text"  value={this.state.direccion} name="Email" disabled={true}/>
                 <div style={{textAlign:'center'}}><img src={grupojumex} style={{ width: '80%' }}></img></div>
             </form>
@@ -336,7 +338,9 @@ export class FormularioMovil extends React.Component {
                 velocidad: result.VELOCIDADEN,
                 tipo: result.TIPO,
                 observacion: result.REFERENCIA,
-                direccion: result.DIRECCION
+                direccion: result.DIRECCION,
+                velocidadde: result.VELOCIDADDE,
+                contactocare: result.CONTACTOCARE
             })
         }
         console.log("resultado", result);

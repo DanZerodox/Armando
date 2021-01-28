@@ -96,7 +96,7 @@ export class FormularioMovil extends React.Component {
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
                 <div style={{textAlign:'center'}}><img src={casetel} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.cas}/>
-                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.cascontact} onClick={this.llamar()}/>
+                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true}><a href="tel://+"{...this.state.cascontact}>{this.state.cascontact}</a></input>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.velocidad}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.tipo}/>
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Dedicado</h6></div>
@@ -104,7 +104,6 @@ export class FormularioMovil extends React.Component {
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Número de contacto" name="Last name" disabled={true}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="Velocidad" name="Email" disabled={true}/>
                 <textarea style={{width:'100%', height:110}} type="text"  value={this.state.direccion} name="Email" disabled={true}/>
-                <a href="tel://+1234567890">Call Me</a>
                 <div style={{textAlign:'center'}}><img src={grupojumex} style={{ width: '80%' }}></img></div>
             </form>
            </div>

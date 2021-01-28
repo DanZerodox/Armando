@@ -164,10 +164,10 @@ export class FormularioWeb extends React.Component {
                         <input style={{ marginTop: 25, width: '100%' }} value={this.state.velocidad} placeholder='#N/D' disabled={true}></input>
                     </Col>
                     <Col sm={1}>
-                        <img src={cobre} style={{ width: 150, float: 'center', marginTop: 16 }}></img>
+                        <img src={cobre} style={{ width: 130, float: 'center', marginTop: 16 }}></img>
                     </Col>
                     <Col sm={2}>
-                        <input style={{ marginTop: 25, width: '70%', float: 'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
+                        <input style={{ marginTop: 25, width: '80%', float: 'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
                     </Col>
                 </Row>
                 <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic', fontSize: 12 }}>

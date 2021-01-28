@@ -96,7 +96,7 @@ export class FormularioMovil extends React.Component {
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Voz y Datos</h6></div>
                 <div style={{textAlign:'center'}}><img src={casetel} style={{ width: 100 }}></img></div>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="First name" disabled={true} value={this.state.cas}/>
-                <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true}><a href="tel://+"{...this.state.cascontact}>{this.state.cascontact}</a></input>
+                <a href={"tel://+"+this.state.cascontact}><input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Last name" disabled={true} value={this.state.cascontact} /></a>           
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.velocidad}/>
                 <input type="text" style={{fontWeight:600, color:'black'}} placeholder="#N/D" name="Email" disabled={true} value={this.state.tipo}/>
                 <div style={{ textAlign: 'center', backgroundColor: '#2f75b5', color: 'white' }}><h6>Servicio Dedicado</h6></div>

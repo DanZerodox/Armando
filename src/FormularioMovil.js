@@ -21,7 +21,7 @@ import grupojumex from './images/grupojumex.PNG';
 import Swal from 'sweetalert2'
 import { useForm } from 'react-hook-form';
 import "./styles.css";
-import { StyleSheet, Text, View, TouchableOpacity, Linking, Platform } from 'react-native';
+import call from 'react-native-phone-call';
 
 export class FormularioMovil extends React.Component {
     constructor(props) {
@@ -112,16 +112,12 @@ export class FormularioMovil extends React.Component {
     }
 
     llamar(){
-        let phoneNumber = '';
- 
-        if (Platform.OS === 'android') {
-          phoneNumber = 'tel:${1234567890}';
-        }
-        else {
-          phoneNumber = 'telprompt:${1234567890}';
-        }
-     
-        Linking.openURL(phoneNumber);
+        const args = {
+            number: '9093900003', // String value with the number to call
+            prompt: false // Optional boolean property. Determines if the user should be prompt prior to the call 
+          }
+           
+        call(args).catch(console.error);
     }
 
     componentDidMount() {

@@ -21,7 +21,6 @@ import grupojumex from './images/grupojumex.PNG';
 import Swal from 'sweetalert2'
 import { useForm } from 'react-hook-form';
 import "./styles.css";
-import call from 'react-native-phone-call';
 
 export class FormularioMovil extends React.Component {
     constructor(props) {

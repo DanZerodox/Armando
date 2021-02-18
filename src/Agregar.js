@@ -12,16 +12,17 @@ import telmex2 from './images/telmex2.PNG';
 import casetel from './images/case.PNG';
 import telefono from './images/telefono.PNG';
 import lector from './images/lector.PNG';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import cobre from './images/cobre.PNG';
 import libro from './images/libro.PNG';
 import ubicacion from './images/ubicacion.PNG';
 import grupojumex from './images/grupojumex.PNG';
-import conserv from './images/conservlogo.png';
 import Swal from 'sweetalert2'
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Menu from '@material-ui/core/Menu';
+import conserv from './images/conservlogo.png';
+import Button from 'react-bootstrap/Button';
+// import Menu from '@material-ui/core/Menu;
 // import MenuItem from '@material-ui/core/MenuItem';
 import {
     Menu,
@@ -29,13 +30,14 @@ import {
     MenuButton
 } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 
 
-export class FormularioWeb extends React.Component {
+export class Agregar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            cd: '',
             buscar: '',
             perfil: '',
             whatsapp: '',
@@ -75,65 +77,133 @@ export class FormularioWeb extends React.Component {
             mensajeerror: '',
             mostrarnombre: false,
             nombreadmin: '',
-            openmenu: false
-
+            openmenu: false,
+            redirect: false,
+            redirect_cerrar:false
         }
 
-        this.handleChangeBuscar = this.handleChangeBuscar.bind(this);
-        this.handleContraseña = this.handleContraseña.bind(this);
-        this.handleUsuario = this.handleUsuario.bind(this);
+        this.handleCD = this.handleCD.bind(this);
+        this.handleResponsable = this.handleResponsable.bind(this);
+        this.handleContacto = this.handleContacto.bind(this);
+        this.handleCorreo = this.handleCorreo.bind(this);
+        this.handleLinea1 = this.handleLinea1.bind(this);
+        this.handleLinea2 = this.handleLinea2.bind(this);
+        this.handleLinea3 = this.handleLinea3.bind(this);
+        this.handleLinea4 = this.handleLinea4.bind(this);
+        this.handleVoz1 = this.handleVoz1.bind(this);
+        this.handleVoz2 = this.handleVoz2.bind(this);
+        this.handleVoz3 = this.handleVoz3.bind(this);
+        this.handleVoz4 = this.handleVoz4.bind(this);
+        this.handleCAS = this.handleCAS.bind(this);
+        this.handleCASCONTACT = this.handleCASCONTACT.bind(this);
+        this.handleVelocidad = this.handleVelocidad.bind(this);
+        this.handleTipo = this.handleTipo.bind(this);
+        this.handleReferencia = this.handleReferencia.bind(this);
+        this.handleContactoCARE = this.handleContactoCARE.bind(this);
+        this.handleVelocidadDE = this.handleVelocidadDE.bind(this);
+        this.handleDireccion = this.handleDireccion.bind(this);
+
+
 
     }
-    handleChangeBuscar(event) {
-        this.setState({ buscar: event.target.value }, () => {
-            this.LlenarCampos();
+
+    handleCD(event) {
+        this.setState({ cd: event.target.value }, () => {
         })
     }
-    handleContraseña(event) {
-        this.setState({ contraseña: event.target.value }, () => {
+    handleResponsable(event) {
+        this.setState({ responsable: event.target.value }, () => {
         })
     }
-    handleUsuario(event) {
-        this.setState({ usuario: event.target.value }, () => {
+    handleContacto(event) {
+        this.setState({ contacto: event.target.value }, () => {
+        })
+    }
+    handleCorreo(event) {
+        this.setState({ correo: event.target.value }, () => {
+        })
+    }
+    handleLinea1(event) {
+        this.setState({ telmexi1: event.target.value }, () => {
+        })
+    }
+    handleLinea2(event) {
+        this.setState({ telmexi2: event.target.value }, () => {
+        })
+    }
+    handleLinea3(event) {
+        this.setState({ telmexi3: event.target.value }, () => {
+        })
+    }
+    handleLinea4(event) {
+        this.setState({ telmexi4: event.target.value }, () => {
+        })
+    }
+    handleVoz1(event) {
+        this.setState({ telemxv1: event.target.value }, () => {
+        })
+    }
+    handleVoz2(event) {
+        this.setState({ telemxv2: event.target.value }, () => {
+        })
+    }
+    handleVoz3(event) {
+        this.setState({ telemxv3: event.target.value }, () => {
+        })
+    }
+    handleVoz4(event) {
+        this.setState({ telemxv4: event.target.value }, () => {
+        })
+    }
+    handleCAS(event) {
+        this.setState({ cas: event.target.value }, () => {
+        })
+    }
+    handleCASCONTACT(event) {
+        this.setState({ cascontact: event.target.value }, () => {
+        })
+    }
+    handleVelocidad(event) {
+        this.setState({ velocidad: event.target.value }, () => {
+        })
+    }
+    handleTipo(event) {
+        this.setState({ tipo: event.target.value }, () => {
+        })
+    }
+    handleReferencia(event) {
+        this.setState({ observacion: event.target.value }, () => {
+        })
+    }
+    handleContactoCARE(event) {
+        this.setState({ contactocare: event.target.value }, () => {
+        })
+    }
+    handleVelocidadDE(event) {
+        this.setState({ velocidadde: event.target.value }, () => {
+        })
+    }
+    handleDireccion(event) {
+        this.setState({ direccion: event.target.value }, () => {
         })
     }
     render() {
         return (
             <>
                 <Route>
-                    <Modal show={this.state.show} onHide={() => this.CerrarModal()} style={{ marginTop: 125 }}>
-                        <Modal.Header closeButton>
-                            <h5>Iniciar Sesión</h5>
-                        </Modal.Header>
-                        <Modal.Body style={{ padding: '0 10px' }}>
-                            <label style={{ color: 'black', fontWeight: 400 }}>Usuario</label>
-                            <input style={{ width: '100%' }} placeholder='Ingresa tu número de empleado' value={this.state.usuario} onChange={this.handleUsuario}></input>
-                            <label style={{ color: 'black', fontWeight: 400 }}>Contraseña</label>
-                            <input style={{ width: '100%' }} placeholder='Ingresa tu contraseña' type="password" value={this.state.contraseña} onChange={this.handleContraseña} ></input>
-                            {this.state.mostrarerror === true ?
-                                <label style={{ color: 'red', fontWeight: 400, textAlign: 'center' }}>{this.state.mensajeerror}</label>
-                                :
-                                null
-                            }
-                            <Button variant="contained" style={{ width: '100%', backgroundColor: 'red' }} onClick={() => this.IniciarSesion()} >Ingresar</Button>
-                            <br></br>
-                        </Modal.Body>
-                    </Modal>
+
                     <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop: '-52px', marginBottom: 'auto' }}>
                         <Row>
                             <Col sm={6}>
                                 <img src={home} style={{ width: 70, float: 'right' }}></img>
-                                <img src={conserv} style={{ width: 150, float: 'left' }}></img>
+                                <Link to={'/'}>
+                                    <img src={conserv} style={{ width: 150, float: 'left' }}></img>
+                                </Link>
                             </Col>
                             <Col sm={3}>
 
                                 {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                                <select style={{ marginTop: 25, width: '100%' }} onChange={this.handleChangeBuscar}>
-                                    <option value="0">----Selecciona un CD----</option>
-                                    {this.state.cedis.map(item => (
-                                        <option value={item.Id}>{item.CD}</option>
-                                    ))}
-                                </select>
+                                <input value={this.state.cd} onChange={this.handleCD}></input>
                             </Col>
                             <Col sm={3} style={{ textAlign: 'end' }}>
                                 {this.state.mostrarnombre === false ?
@@ -155,19 +225,19 @@ export class FormularioWeb extends React.Component {
                                 <img src={perfil} style={{ width: 100, float: 'center' }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.responsable} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.responsable} onChange={this.handleResponsable}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={whats} style={{ width: 90, float: 'center' }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.contacto} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.contacto} onChange={this.handleContacto}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={outlook} style={{ width: 90, float: 'center' }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.correo} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.correo} onChange={this.handleCorreo}></input>
                             </Col>
                         </Row>
                         <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic', fontSize: 12 }}>
@@ -178,16 +248,16 @@ export class FormularioWeb extends React.Component {
                                 <img src={telmex} style={{ width: 100, float: 'center', marginTop: 20 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '100%', }} value={this.state.telmexi1} placeholder='#N/D' disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%', }} value={this.state.telmexi1} placeholder='#N/D' onChange={this.handleLinea1}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi2} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi2} onChange={this.handleLinea2}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi3} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi3} onChange={this.handleLinea3}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi4} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telmexi4} onChange={this.handleLinea4}></input>
                             </Col>
                         </Row>
                         <Row>
@@ -195,16 +265,16 @@ export class FormularioWeb extends React.Component {
                                 <img src={telmex2} style={{ width: 100, float: 'center', marginTop: 20 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '100%', }} placeholder='#N/D' value={this.state.telemxv1} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%', }} placeholder='#N/D' value={this.state.telemxv1} onChange={this.handleVoz1}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv2} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv2} onChange={this.handleVoz2}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv3} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv3} onChange={this.handleVoz3}></input>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv4} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.telemxv4} onChange={this.handleVoz4}></input>
                             </Col>
                         </Row>
                         <Row>
@@ -212,25 +282,25 @@ export class FormularioWeb extends React.Component {
                                 <img src={casetel} style={{ width: 100, float: 'center', marginTop: 20 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.cas} placeholder='#N/D' disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.cas} placeholder='#N/D' onChange={this.handleCAS}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={telefono} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.cascontact} placeholder='#N/D' disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.cascontact} placeholder='#N/D' onChange={this.handleCASCONTACT}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={lector} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.velocidad} placeholder='#N/D' disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} value={this.state.velocidad} placeholder='#N/D' onChange={this.handleVelocidad}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={cobre} style={{ width: 130, float: 'center', marginTop: 16 }}></img>
                             </Col>
                             <Col sm={2}>
-                                <input style={{ marginTop: 25, width: '80%', float: 'right' }} placeholder='#N/D' value={this.state.tipo} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '80%', float: 'right' }} placeholder='#N/D' value={this.state.tipo} onChange={this.handleTipo}></input>
                             </Col>
                         </Row>
                         <div style={{ width: '100%', backgroundColor: '#2f75b5', textAlign: 'center', fontStyle: 'italic', fontSize: 12 }}>
@@ -241,19 +311,19 @@ export class FormularioWeb extends React.Component {
                                 <img src={libro} style={{ width: 100, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.observacion} disabled={true}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.observacion} onChange={this.handleReferencia}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={telefono} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true} value={this.state.contactocare}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.contactocare} onChange={this.handleContactoCARE}></input>
                             </Col>
                             <Col sm={1}>
                                 <img src={lector} style={{ width: 80, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={3}>
-                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' disabled={true} value={this.state.velocidadde}></input>
+                                <input style={{ marginTop: 25, width: '100%' }} placeholder='#N/D' value={this.state.velocidadde} onChange={this.handleVelocidadDE}></input>
                             </Col>
 
                         </Row>
@@ -262,24 +332,99 @@ export class FormularioWeb extends React.Component {
                                 <img src={ubicacion} style={{ width: 72, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={9}>
-                                <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true} />
+                                <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' onChange={this.handleDireccion} />
                             </Col>
                             <Col sm={2}>
-                                <img src={grupojumex} style={{ width: 180, float: 'center', marginTop: 10 }}></img>
+                                {/* <img src={grupojumex} style={{ width: 180, float: 'center', marginTop: 10 }}></img> */}
+                                <Button variant="success" style={{ marginTop: 19, width: '100%', backgroundColor: '#28a745' }} onClick={() => this.FinalizarAgregado()}>Agregar</Button>
                             </Col>
-
-
                         </Row>
+                        {this.state.redirect == true ?
+                            <Redirect push to={'/administrador'}></Redirect>
+                            : null
+                        }
+                         {this.state.redirect_cerrar == true ?
+                            <Redirect push to={'/'}></Redirect>
+                            : null
+                        }
                     </Jumbotron>
                 </Route>
             </>
         );
     }
 
+    FinalizarAgregado() {
+        this.finalizar(localStorage.getItem("token")).then(item => {
+            console.log("respuesta", item);
+            if (item.Estatus === "Ok") {
+                Swal.fire(
+                    'Finalizado',
+                    item.Mensaje,
+                    'success'
+                );
+            }
+            else {
+                Swal.fire(
+                    'Error',
+                    item.Mensaje,
+                    'warning'
+                );
+            }
+            this.setState({redirect:true})
+
+        })
+    }
+
+    finalizar(token) {
+        var datos = {
+            "CD": this.state.cd,
+            "Responsable": this.state.responsable,
+            "Contacto": this.state.contacto,
+            "Correo": this.state.correo,
+            "Linea1": this.state.telmexi1,
+            "Linea2": this.state.telmexi2,
+            "Linea3": this.state.telmexi3,
+            "Linea4": this.state.telmexi4,
+            "Voz1": this.state.telemxv1,
+            "Voz2": this.state.telemxv2,
+            "Voz3": this.state.telemxv3,
+            "Voz4": this.state.telemxv4,
+            "Cas_Correspondiente": this.state.cas,
+            "Contacto_Cas": this.state.cascontact,
+            "Velocidad_Enlace": this.state.velocidad,
+            "Tipo_Enlace": this.state.tipo,
+            "Referencia_Dedicado": this.state.observacion,
+            "Contacto_CARE": this.state.contactocare,
+            "Velocidad_Dedicado": this.state.velocidadde,
+            "Direccion": this.state.direccion
+        };
+        var cedis = [];
+
+        var q1 = new Promise(function (resolve, reject) {
+            //const postUrl= "https://manzana.jumex.com.mx:4438/connector_jwt/api/login/authenticate";
+            const postUrl = "http://192.168.14.68:5555/api/administrador/AgregarCD"
+            fetch(postUrl, {
+                method: 'POST',
+                body: JSON.stringify(datos),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'token': token
+                }
+            }).then((res => res.json()))
+                .catch(error => console.log('Error:', error))
+                .then(response => {
+                    cedis.push(response);
+                    resolve(response);
+                });
+        });
+        return q1;
+    }
+
     CerrarSesion() {
         localStorage.clear();
         this.setState({
-            mostrarnombre: false
+            mostrarnombre: false,
+            redirect_cerrar:true
         })
     }
 
@@ -287,62 +432,6 @@ export class FormularioWeb extends React.Component {
         this.setState({
             openmenu: true
         })
-    }
-
-    IniciarSesion() {
-        this._ObtenerToken(this.state.usuario, this.state.contraseña).then(item => {
-            if (item[0].Status === "NoAutorizado") {
-                this.setState({
-                    mensajeerror: item[0].Mensaje,
-                    mostrarerror: true,
-                    mostrarnombre: false
-                })
-            }
-            else {
-
-                console.log("token", item);
-                localStorage.setItem("token", item[0].Token);
-                localStorage.setItem("session", 1);
-                localStorage.setItem("nombre", item[0].Nombre)
-                this.setState({
-                    mostrarerror: false,
-                    show: false,
-                    nombreadmin: item[0].Nombre,
-                    mostrarnombre: true
-                });
-            }
-
-        })
-    }
-
-    _ObtenerToken(usuario, password) {
-        let token;
-        var colaborador = [];
-        const data = {
-            Usuario: usuario,
-            Password: password
-        };
-
-        var q1 = new Promise(function (resolve, reject) {
-            //const postUrl= "https://manzana.jumex.com.mx:4438/connector_jwt/api/login/authenticate";
-            const postUrl = "http://192.168.14.68:5555/api/usuario/authenticate"
-            fetch(postUrl, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then((res => res.json()))
-                .catch(error => console.log('Error:', error))
-                .then(response => {
-                    colaborador.push(response);
-                    resolve(colaborador);
-
-
-                });
-        });
-        return q1;
-
     }
 
     CerrarModal() {
@@ -361,19 +450,15 @@ export class FormularioWeb extends React.Component {
                 nombreadmin: localStorage.getItem("nombre")
             })
         }
-        this.CargarCedis().then(item => {
-            this.setState({
-                cedis: item[0]
-            }, () => { console.log('CEDIS', this.state.cedis) })
-        })
+
     }
 
-    CargarCedis() {
+    CargarCedis(Id) {
         var cedis = [];
 
         var q1 = new Promise(function (resolve, reject) {
             //const postUrl= "https://manzana.jumex.com.mx:4438/connector_jwt/api/login/authenticate";
-            const postUrl = "http://192.168.14.68:5555/api/Cedis/CargarCedis"
+            const postUrl = "http://192.168.14.68:5555/api/Cedis/BuscarCedis?Id=" + Id
             fetch(postUrl, {
                 method: 'GET',
                 headers: {
@@ -383,7 +468,7 @@ export class FormularioWeb extends React.Component {
                 .catch(error => console.log('Error:', error))
                 .then(response => {
                     cedis.push(response);
-                    resolve(cedis);
+                    resolve(response);
                 });
         });
         return q1;

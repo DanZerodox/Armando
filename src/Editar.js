@@ -22,6 +22,7 @@ import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import conserv from './images/conservlogo.png';
 import Button from 'react-bootstrap/Button';
+import Map from './Map';
 // import Menu from '@material-ui/core/Menu;
 // import MenuItem from '@material-ui/core/MenuItem';
 import {
@@ -31,8 +32,87 @@ import {
 } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
+import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
+import Autocomplete from 'react-google-autocomplete';
+import Geocode from "react-geocode";
+import $ from "jquery";
 
-
+Geocode.setApiKey("AIzaSyB_Dpl0sPNY7SnumRJvxAMAhonX9Bfi_3k");
+Geocode.enableDebug();
+// var hideModal = hideModalInfo => {
+//     $("#myModal").modal("hide");
+// };
+const modalMapStyles = [
+    {
+        featureType: "landscape.natural",
+        elementType: "geometry.fill",
+        stylers: [
+            {
+                visibility: "on"
+            },
+            {
+                color: "#e0efef"
+            }
+        ]
+    },
+    {
+        featureType: "poi",
+        elementType: "geometry.fill",
+        stylers: [
+            {
+                visibility: "on"
+            },
+            {
+                hue: "#1900ff"
+            },
+            {
+                color: "#c0e8e8"
+            }
+        ]
+    },
+    {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+            {
+                lightness: 100
+            },
+            {
+                visibility: "simplified"
+            }
+        ]
+    },
+    {
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+            {
+                visibility: "off"
+            }
+        ]
+    },
+    {
+        featureType: "transit.line",
+        elementType: "geometry",
+        stylers: [
+            {
+                visibility: "on"
+            },
+            {
+                lightness: 700
+            }
+        ]
+    },
+    {
+        featureType: "water",
+        elementType: "all",
+        stylers: [
+            {
+                color: "#7dcdcd"
+            }
+        ]
+    }
+];
 export class Editar extends React.Component {
     constructor(props) {
         super(props);
@@ -80,10 +160,14 @@ export class Editar extends React.Component {
             openmenu: false,
             id_editar: props.match.params.id,
             redirect: false,
-            redirect_cerrar:false
-
+            redirect_cerrar: false,
+            latitude: null,
+            longitude: null,
+            showDireccion: false
         }
 
+        this.getLocation = this.getLocation.bind(this);
+        this.getCoordinates = this.getCoordinates.bind(this);
         this.handleCD = this.handleCD.bind(this);
         this.handleResponsable = this.handleResponsable.bind(this);
         this.handleContacto = this.handleContacto.bind(this);
@@ -109,6 +193,27 @@ export class Editar extends React.Component {
 
     }
 
+    getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.getCoordinates);
+        }
+        else {
+
+        }
+    }
+
+    getCoordinates(position) {
+        this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }, () => {
+            if (this.state.latitude === "") {
+                alert('falla');
+            } else {
+
+            }
+        })
+    }
     handleCD(event) {
         this.setState({ cd: event.target.value }, () => {
         })
@@ -193,19 +298,33 @@ export class Editar extends React.Component {
         return (
             <>
                 <Route>
+                    {/* <Modal show={this.state.showDireccion} onHide={() => this.CerrarModalDireccion()} style={{ marginTop: 0 }}>
+                        <>
+                            <Modal.Header closeButton>
+                                <h5>Editar Dirección {this.state.cd}</h5>
+                            </Modal.Header>
+                            <Modal.Body style={{ padding: '0 10px' }}>
+                            <Map google={this.props.google}
+                                            center={{ lat:19.524204, lng: -99.081846 }}
+                                            height='480px'
+                                            zoom={15}
+                                            margin='60px'></Map>
+                            </Modal.Body>
+                        </>
+                    </Modal> */}
 
                     <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop: '-52px', marginBottom: 'auto' }}>
                         <Row>
-                            <Col sm={6}>
+                            <Col sm={5}>
                                 <img src={home} style={{ width: 70, float: 'right' }}></img>
                                 <Link to={'/'}>
                                     <img src={conserv} style={{ width: 150, float: 'left' }}></img>
                                 </Link>
                             </Col>
-                            <Col sm={3}>
+                            <Col sm={4}>
 
                                 {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                                <input value={this.state.cd} onChange={this.handleCD}></input>
+                                <input value={this.state.cd} onChange={this.handleCD} style={{width:'73%',marginTop:16}}></input>
                             </Col>
                             <Col sm={3} style={{ textAlign: 'end' }}>
                                 {this.state.mostrarnombre === false ?
@@ -332,6 +451,58 @@ export class Editar extends React.Component {
                         <Row>
                             <Col sm={1}>
                                 <img src={ubicacion} style={{ width: 72, float: 'center', marginTop: 10 }}></img>
+                                {/* <a onClick={() => this.AbrirModalDireccion()}>
+                                </a> */}
+                                {/* <button
+                                    className="btn btn-primary"
+                                    data-toggle="modal"
+                                    data-target="#myModal"
+                                >
+                                    Open Modal
+                                </button> */}
+                                {this.state.showDireccion === true ?
+                                    <div className="modal" tabIndex="-1" role="dialog" style={{display:'block',   backgroundColor: 'rgba(0, 0, 0, .5)'}}>
+                                        <div
+                                            className="modal-dialog modal-lg mvh-90 w-100 d-flex flex-column"
+                                            role="document"
+                                        >
+                                            <div className="modal-content flex-grow-1">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title">Map inside Modal</h5>
+                                                    <button
+                                                        type="button"
+                                                        className="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close"
+                                                        onClick={()=>this.CerrarModalDireccion()}
+
+                                                    >
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div className="modal-body p-0 h-100">
+                                                    {/* <div className="h-100 w-100 position-absolute">
+                                                        {/*modal map is defined here- custom styles and zoom are passed in*/}
+                                                        <Map google={this.props.google}
+                                                            center={{ lat: 19.524204, lng: -99.081846 }}
+                                                            height='480px'
+                                                            zoom={15}
+                                                            margin='60px'></Map>
+                                                    
+                                                </div>
+                                                {/* <div className="modal-footer">
+                                                    <button
+                                                        type="button"
+                                                        className="mx-auto btn btn-secondary"
+                                                        onClick={()=>this.CerrarModalDireccion()}
+                                                    >
+                                                        Close
+                                                    </button>
+                                                </div> */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    : null}
                             </Col>
                             <Col sm={9}>
                                 <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' onChange={this.handleDireccion} />
@@ -350,9 +521,42 @@ export class Editar extends React.Component {
                             : null
                         }
                     </Jumbotron>
+
                 </Route>
             </>
         );
+    }
+
+    AbrirModalDireccion() {
+        this.setState({
+            showDireccion: true
+        }, () => {
+            if (navigator.geolocation) {
+
+                navigator.geolocation.watchPosition(function (position) {
+                    navigator.geolocation.getCurrentPosition(this.getCoordinates);
+                }.bind(this),
+                    function (error) {
+                        console.log('pelusin', error);
+                        if (error.code == error.PERMISSION_DENIED)
+                            this.setState({
+                                latitude: 19.524204,
+                                longitude: -99.081846
+                            })
+                    }.bind(this)
+
+                );
+                console.log('errortxt');
+            }
+        })
+
+
+    }
+
+    CerrarModalDireccion() {
+        this.setState({
+            showDireccion: false
+        })
     }
 
     FinalizarEdicion() {
@@ -372,7 +576,7 @@ export class Editar extends React.Component {
                     'warning'
                 );
             }
-            this.setState({redirect:true})
+            this.setState({ redirect: true })
         })
     }
 
@@ -449,7 +653,9 @@ export class Editar extends React.Component {
         if (localStorage.getItem("session") == 1) {
             this.setState({
                 mostrarnombre: true,
-                nombreadmin: localStorage.getItem("nombre")
+                nombreadmin: localStorage.getItem("nombre"),
+                // latitude: 19.524204,
+                // longitude: -99.081846
             })
         }
         this.CargarCedis(this.state.id_editar).then(item => {
@@ -471,7 +677,7 @@ export class Editar extends React.Component {
                 velocidad: item[0].Velocidad_Enlace,
                 tipo: item[0].Tipo_Enlace,
                 observacion: item[0].Referencia_Dedicado,
-                contactocare: item[0].Contacto_Cas,
+                contactocare: item[0].Contacto_CARE,
                 velocidadde: item[0].Velocidad_Dedicado,
                 direccion: item[0].Direccion
 

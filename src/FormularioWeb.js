@@ -75,7 +75,8 @@ export class FormularioWeb extends React.Component {
             mensajeerror: '',
             mostrarnombre: false,
             nombreadmin: '',
-            openmenu: false
+            openmenu: false,
+            direcciongoogle:''
 
         }
 
@@ -121,14 +122,14 @@ export class FormularioWeb extends React.Component {
                     </Modal>
                     <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop: '-52px', marginBottom: 'auto' }}>
                         <Row>
-                            <Col sm={6}>
+                            <Col sm={5}>
                                 <img src={home} style={{ width: 70, float: 'right' }}></img>
                                 <img src={conserv} style={{ width: 150, float: 'left' }}></img>
                             </Col>
-                            <Col sm={3}>
+                            <Col sm={4}>
 
                                 {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                                <select style={{ marginTop: 25, width: '100%' }} onChange={this.handleChangeBuscar}>
+                                <select style={{ marginTop: 25, width: '73%' }} onChange={this.handleChangeBuscar}>
                                     <option value="0">----Selecciona un CD----</option>
                                     {this.state.cedis.map(item => (
                                         <option value={item.Id}>{item.CD}</option>
@@ -262,7 +263,7 @@ export class FormularioWeb extends React.Component {
                                 <img src={ubicacion} style={{ width: 72, float: 'center', marginTop: 10 }}></img>
                             </Col>
                             <Col sm={9}>
-                                <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true} />
+                               <a href={"https://www.google.com.mx/maps/search/"+this.state.direcciongoogle} target="_blank"> <textarea style={{ marginTop: 20, width: '100%' }} value={this.state.direccion} placeholder='#N/D' disabled={true}  /></a>
                             </Col>
                             <Col sm={2}>
                                 <img src={grupojumex} style={{ width: 180, float: 'center', marginTop: 10 }}></img>
@@ -275,7 +276,10 @@ export class FormularioWeb extends React.Component {
             </>
         );
     }
-
+    AbrirGoogleMaps(){
+        var direccion= this.state.direccion.split(" ").join("+");
+        alert(direccion);
+    }     
     CerrarSesion() {
         localStorage.clear();
         this.setState({
@@ -463,7 +467,8 @@ export class FormularioWeb extends React.Component {
                     observacion: result[0].Referencia_Dedicado,
                     direccion: result[0].Direccion,
                     velocidadde: result[0].Velocidad_Dedicado,
-                    contactocare: result[0].Contacto_CARE
+                    contactocare: result[0].Contacto_CARE,
+                    direcciongoogle: result[0].Direccion.split(" ").join("+")
                 })
             }
         });

@@ -58,7 +58,9 @@ export class FormularioMovil extends React.Component {
             direccion: '',
             cedis: [],
             velocidadde: '',
-            contactocare: ''
+            contactocare: '',
+            direcciongoogle:''
+
         }
 
         this.handleChangeBuscar = this.handleChangeBuscar.bind(this);
@@ -109,7 +111,7 @@ export class FormularioMovil extends React.Component {
                     <input type="text" style={{ fontWeight: 600, color: 'black' }} placeholder="Observaciones" name="First name" disabled={true} value={this.state.observacion} />
                     <a href={"tel://" + this.state.contactocare}><input type="text" style={{ fontWeight: 600, color: 'black' }} placeholder="Número de contacto" name="Last name" disabled={true} value={this.state.contactocare} /></a>
                     <input type="text" style={{ fontWeight: 600, color: 'black' }} placeholder="Velocidad" name="Email" disabled={true} value={this.state.velocidadde} />
-                    <textarea style={{ width: '100%', height: 110 }} type="text" value={this.state.direccion} name="Email" disabled={true} />
+                    <a href={"https://www.google.com.mx/maps/search/"+this.state.direcciongoogle} target="_blank"><textarea style={{ width: '100%', height: 110 }} type="text" value={this.state.direccion} name="Email" disabled={true} /></a>
                     <div style={{ textAlign: 'center' }}><img src={grupojumex} style={{ width: '80%' }}></img></div>
                 </form>
             </div>
@@ -224,7 +226,9 @@ export class FormularioMovil extends React.Component {
                     observacion: result[0].Referencia_Dedicado,
                     direccion: result[0].Direccion,
                     velocidadde: result[0].Velocidad_Dedicado,
-                    contactocare: result[0].Contacto_CARE
+                    contactocare: result[0].Contacto_CARE,
+                    direcciongoogle: result[0].Direccion.split(" ").join("+")
+
                 })
             }
         });

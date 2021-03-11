@@ -194,16 +194,16 @@ export class Agregar extends React.Component {
 
                     <Jumbotron style={{ marginLeft: 'auto', marginRight: 'auto', width: '90%', backgroundColor: 'white', marginTop: '-52px', marginBottom: 'auto' }}>
                         <Row>
-                            <Col sm={6}>
+                            <Col sm={5}>
                                 <img src={home} style={{ width: 70, float: 'right' }}></img>
                                 <Link to={'/'}>
                                     <img src={conserv} style={{ width: 150, float: 'left' }}></img>
                                 </Link>
                             </Col>
-                            <Col sm={3}>
+                            <Col sm={4}>
 
                                 {/* <input style={{ marginTop: 25 }} placeholder='Buscar...' onChange={this.handleChangeBuscar} onKeyPress={event => { if (event.key === 'Enter') { this.LlenarCampos() } }} value={this.state.buscar}></input> */}
-                                <input value={this.state.cd} onChange={this.handleCD}></input>
+                                <input value={this.state.cd} onChange={this.handleCD} style={{width:'73%',marginTop:16}}></input>
                             </Col>
                             <Col sm={3} style={{ textAlign: 'end' }}>
                                 {this.state.mostrarnombre === false ?
